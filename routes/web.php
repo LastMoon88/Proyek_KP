@@ -15,7 +15,49 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+Route::get('/home', function () {
+    return view('dashboard');
+});
 // Route::get('/','DashboardController@index');
+
+Route::get('/asking_for_account', function () {
+    return view('pages.user-pages.asking_for_account');
+});
+
+Route::get('/asking_for_register', function () {
+    return view('pages.user-pages.asking_for_register');
+});
+
+Route::get('/login', function () {
+    return view('pages.user-pages.login');
+});
+
+Route::get('/register', function () {
+    return view('pages.user-pages.begin-page');
+});
+
+Route::get('/register', function () {
+    return view('pages.user-pages.begin-page');
+});
+
+Route::post('/ceklogin', 'login@ceklogin');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::group(['prefix' => 'basic-ui'], function(){
     Route::get('accordions', function () { return view('pages.basic-ui.accordions'); });

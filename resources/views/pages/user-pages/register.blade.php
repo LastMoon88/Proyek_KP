@@ -4,7 +4,7 @@
 <div class="content-wrapper d-flex align-items-center justify-content-center auth theme-one" style="background-image: url({{ url('assets/images/auth/register.jpg') }}); background-size: cover;">
   <div class="row w-100">
     <div class="col-lg-4 mx-auto">
-      <h2 class="text-center mb-4">Register</h2>
+      <h2 class="text-center mb-4 text-primary">Register</h2>
       <div class="auto-form-wrapper">
         <form action="#">
           <div class="form-group">
