@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('pages.user-pages.asking_for_account');
 });
 
 Route::get('/home', function () {
@@ -31,16 +31,14 @@ Route::get('/asking_for_register', function () {
 Route::get('/login', function () {
     return view('pages.user-pages.login');
 });
-
-Route::get('/register', function () {
-    return view('pages.user-pages.begin-page');
-});
-
-Route::get('/register', function () {
-    return view('pages.user-pages.begin-page');
-});
-
 Route::post('/ceklogin', 'login@ceklogin');
+
+Route::get('/register', function () {
+    return view('pages.user-pages.register');
+});
+Route::post('/cekregister', 'register@cekregister');
+
+
 
 
 

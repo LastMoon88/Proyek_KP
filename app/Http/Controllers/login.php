@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Logging\Log;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class login extends Controller
 {
@@ -19,11 +22,15 @@ class login extends Controller
             }
             else {
               // Jika password salah, berikan pesan error
-              return 'Wrong password';
+              $request->session()->flash('error_pass', 'Password Salah');
+              return Redirect::back();
+              //return 'Wrong password';
             }
           }
           else{
-              return 'user not found';
+              $request->session()->flash('error_not_found', 'No telp tidak terdaftar');
+              return Redirect::back();
+              //return 'user not found';
           }
         }
     }

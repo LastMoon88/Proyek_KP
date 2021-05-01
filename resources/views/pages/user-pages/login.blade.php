@@ -28,13 +28,22 @@
               </div>
             </div>
           </div>
-          <br>
-          <br>
+          <div class="form-group">
+            <h6 class="text-center mb-4 text-danger">
+              @if(Session::has('error_pass'))
+                {{Session::get('error_pass')}}
+              @elseif (Session::has('error_not_found'))
+                {{Session::get('error_not_found')}}
+                <br>
+                <a style="font-size: 70%;" href="register">Klik disini untuk daftar</a>
+              @endif</h6>
+          </div>
           <div class="form-group">
             <input class="btn btn-primary submit-btn btn-block" type="submit" value="Login">
           </div>
         </form>
       </div>
+
     </div>
   </div>
 </div>
