@@ -36,7 +36,8 @@
                 {{Session::get('error_not_found')}}
                 <br>
                 <a style="font-size: 70%;" href="register">Klik disini untuk daftar</a>
-              @endif</h6>
+              @endif
+            </h6>
           </div>
           <div class="form-group">
             <input class="btn btn-primary submit-btn btn-block" type="submit" value="Login">

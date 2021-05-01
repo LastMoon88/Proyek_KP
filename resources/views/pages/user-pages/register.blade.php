@@ -59,7 +59,14 @@
             </div>
           </div>
           <div class="form-group">
-            <button class="btn btn-primary submit-btn btn-block">Register</button>
+            <h6 class="text-center mb-4 text-danger">
+              @if(Session::has('error'))
+                {{Session::get('error')}}
+              @endif
+            </h6>
+          </div>
+          <div class="form-group">
+            <input class="btn btn-primary submit-btn btn-block" type="submit" value="Register">
           </div>
           <div class="text-block text-center my-3">
             <span class="text-small font-weight-semibold">Sudah punya akun ?</span>
