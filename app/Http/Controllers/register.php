@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Customers;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
@@ -62,8 +62,13 @@ class register extends Controller
         }
         else{
             //inserting
-            $request->session()->flash('error', 'berhasil insert');
-            return Redirect::back();
+            Customers::create([
+                'Nama_customer'=>$nama_customer,
+                'No_hp_customer'=>$no_hp_customer,
+                'Password_customer'=>$password_customer,
+                'Alamat_customer'=>$alamat_customer
+            ]);
+            return Redirect('home');
         }
     }
 }
