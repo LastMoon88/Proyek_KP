@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customers;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
@@ -14,7 +15,12 @@ class login extends Controller
         $nohp = $request->nohp;
         $password = $request->password;
 
-        $users = DB::select('select * from customer');
+        //masuk admin
+        if($nohp == "admin" && $password == "admin") {
+            return redirect('/home-admin');
+        }
+
+        $users = Customers::all();
         foreach($users as $user) {
           if ($user->No_hp_customer == $nohp) {
             if ($user->Password_customer == $password) {

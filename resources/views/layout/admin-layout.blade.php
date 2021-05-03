@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Star Admin Pro Laravel Dashboard Template</title>
+  <title>Admin page</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,12 +24,11 @@
 
   @stack('style')
 </head>
-<body data-base-url="{{url('/')}}">
+<body>
 
   <div class="container-scroller" id="app">
-    @include('layout.header')
     <div class="container-fluid page-body-wrapper">
-      @include('layout.sidebar')
+      @include('layout.admin-sidebar')
       <div class="main-panel">
         <div class="content-wrapper">
           @yield('content')

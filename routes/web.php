@@ -38,10 +38,13 @@ Route::get('/register', function () {
 });
 Route::post('/cekregister', 'register@cekregister');
 
+Route::get('/home-admin', 'AdminController@PindahCustomer');
+Route::get('/customer-admin', 'AdminController@PindahCustomer');
+Route::get('/produk-admin', 'AdminController@PindahCustomer');
+Route::get('/produk-vulkanisir-admin', 'AdminController@PindahCustomer');
+Route::get('/report-admin', 'AdminController@PindahCustomer');
 
-
-
-
+Route::post('/add-customer', 'AdminController@AddCustomer');
 
 
 
