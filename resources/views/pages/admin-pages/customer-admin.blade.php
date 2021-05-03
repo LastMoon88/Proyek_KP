@@ -19,24 +19,33 @@
                             <input type="text" class="form-control" placeholder="Nama Lengkap" name="nama" style="width: 200pt; height: 20px;  padding: 0.375rem 0.75rem; " />
                         </div>
                     </div>
+                    <br>
                     <div class="control-group">
                         <small class="designation text-muted">No. Telp Customer:</small>
                         <div class="controls">
                             <input type="text" class="form-control" placeholder="No. telp" name="nohp" style="width: 100pt; height: 20px;  padding: 0.375rem 0.75rem; " />
                         </div>
                     </div>
+                    <br>
                     <div class="control-group">
                         <small class="designation text-muted">Alamat Customer:</small>
                         <div class="controls">
                             <input type="text" class="form-control" placeholder="Alamat" name="alamat" style="width: 350pt; height: 20px;  padding: 0.375rem 0.75rem; " />
                         </div>
                     </div>
+                    <br>
                     <div class="control-group">
                         <small class="designation text-muted">Jenis Customer:</small>
                         <div class="controls">
                             <input type="text" class="form-control" placeholder="Jenis" name="jenis" style="width: 50pt; height: 20px;  padding: 0.375rem 0.75rem; " />
+                            <select class="form-control" name="jenis" style="width: 100pt; height: 20px;  padding: 0.375rem 0.75rem; ">
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
                         </div>
                     </div>
+                    <br>
                     <br>
                     <div class="form-group">
                         <input class="btn btn-primary btn-fw" type="submit" value="Insert">
