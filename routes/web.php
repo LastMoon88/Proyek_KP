@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('pages.user-pages.asking_for_account');
 });
 
-Route::get('/home', function () {
-    return view('dashboard');
-});
+Route::get('/home', 'Home@HomeToBuy');
 // Route::get('/','DashboardController@index');
 
 Route::get('/asking_for_account', function () {
