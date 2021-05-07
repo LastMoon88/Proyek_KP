@@ -19,7 +19,8 @@ class login extends Controller
         if($nohp == "admin" && $password == "admin") {
             return redirect('/home-admin');
         }
-
+        $cekpass=true;
+        $cekuser=true;
         $users = Customers::all();
         foreach($users as $user) {
           if ($user->No_hp_customer == $nohp) {
@@ -27,17 +28,20 @@ class login extends Controller
               return redirect('/home');
             }
             else {
-              // Jika password salah, berikan pesan error
-              $request->session()->flash('error_pass', 'Password Salah');
-              return Redirect::back();
-              //return 'Wrong password';
+              $cekpass = false;
             }
           }
           else{
-              $request->session()->flash('error_not_found', 'No telp tidak terdaftar');
-              return Redirect::back();
-              //return 'user not found';
+              $cekuser=false;
           }
+        }
+        if(!$cekuser){
+            $request->session()->flash('error_not_found', 'No telp tidak terdaftar');
+            return Redirect::back();
+        }
+        if(!$cekpass){
+            $request->session()->flash('error_pass', 'Password Salah');
+            return Redirect::back();
         }
     }
 }
