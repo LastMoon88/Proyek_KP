@@ -22,4 +22,14 @@ class Order_vulkanisir extends Model
      'Tanggal_pengambilan_ban',
      'Tanggal_pengantaran_ban'
     ];
+
+
+    public function details()
+    {
+        # code...
+        return $this->hasMany(Detail_order_vulkanisir::class,'id_order_vulkanisir' );
+
+
+    }
+
 }

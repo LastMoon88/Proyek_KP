@@ -7,13 +7,34 @@ use Illuminate\Support\Facades\DB;
 
 class Home extends Controller
 {
-    public function HomeToBuy()
+    public function Produk()
     {
-        $vulkan = DB::select('select * from produk_vulkanisir');
         $produk = DB::select('select * from produk');
-        return view("layout.dashboard",[
-            "vulkan"=>$vulkan,
+        return view("layout.produk",[
             "produk"=>$produk
         ]);
+    }
+    public function ProdukVulkan()
+    {
+        $produk = DB::select('select * from produk_vulkanisir');
+        return view("layout.produkVulkanisir",[
+            "produk"=>$produk
+        ]);
+    }
+    // public function HistoryPemesanan()
+    // {
+    //     $produk = DB::select('select * from order_vulkanisir');
+    //     $detailOrder = DB::select("select * from detail_order_vulkanisir");
+    //     foreach ($i as $key => $value) {
+    //         # code...
+    //     }
+
+    //     return view("layout.produkVulkanisir",[
+    //         "produk"=>$produk
+    //     ]);
+    // }
+    public function home()
+    {
+        return view("layout.home");
     }
 }

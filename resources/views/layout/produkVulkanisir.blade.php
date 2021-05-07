@@ -6,25 +6,6 @@
 
 @section('content')
 <div class="row">
-    <h1 class="display-1">Vulkanisir</h1>
-    <div class="col-12 grid-margin">
-      <div class="card">
-          {{-- dimulai foreach disini --}}
-
-        <div class="row">
-            {{-- for untuk mengambil product --}}
-            @isset($vulkan)
-                @foreach ($vulkan as $i)
-                <div class="col-md-6">
-                    <div class="card-body">
-                    <h3 class="card-title">{{$i->Nama_produk_vulkanisir}}</h3>
-                    <img src="https://photo.jpnn.com/arsip/normal/2019/10/15/ban-bridgestone-emsa-foto-bridgestone-77.jpeg" alt="BAN" style="width:200px;height:142px;">
-                    </div>
-                </div>
-                @endforeach
-            @endisset
-
-    <h1 class="display-1">Product</h1>
     <div class="col-12 grid-margin">
       <div class="card">
         <div class="row">
@@ -33,13 +14,15 @@
                 @foreach ($produk as $i)
                 <div class="col-md-6">
                     <div class="card-body">
-                    <h3 class="card-title">{{$i->Nama_produk}}</h3>
+                    <h3 class="card-title">{{$i->Nama_produk_vulkanisir}}</h3>
                     <img src="https://photo.jpnn.com/arsip/normal/2019/10/15/ban-bridgestone-emsa-foto-bridgestone-77.jpeg" alt="BAN" style="width:200px;height:142px;">
+
                     </div>
                 </div>
                 @endforeach
             @endisset
       </div>
+    </div>
     </div>
 
 @endsection

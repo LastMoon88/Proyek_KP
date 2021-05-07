@@ -19,4 +19,10 @@ class Customers extends Model
      'Alamat_customer',
      'Jenis_customer'
     ];
+
+
+    // customer has
+
+
+
 }

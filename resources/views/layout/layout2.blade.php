@@ -27,7 +27,7 @@
 <body data-base-url="{{url('/')}}">
 
   <div class="container-scroller" id="app">
-    @include('layout.headerlayout1')
+    @include('layout.headerlayout2')
     <div class="container-fluid page-body-wrapper">
         @include('layout.sidebarHome')
       <div class="main-panel">

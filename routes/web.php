@@ -11,11 +11,24 @@
 |
 */
 
+use App\Models\Order_vulkanisir;
+
+Route::get('/test', function () {
+    dd(Order_vulkanisir::find(1)->details);
+
+
+
+
+});
+
+
 Route::get('/', function () {
     return view('pages.user-pages.asking_for_account');
 });
 
-Route::get('/home', 'Home@HomeToBuy');
+Route::get('/home', 'Home@home');
+Route::get('/produk', 'Home@Produk');
+Route::get('/produkVulkanisir', 'Home@ProdukVulkan');
 // Route::get('/','DashboardController@index');
 
 Route::get('/asking_for_account', function () {
@@ -171,12 +184,12 @@ Route::group(['prefix' => 'ecommerce'], function(){
 });
 
 // For Clear cache
-Route::get('/clear-cache', function() {
-    Artisan::call('cache:clear');
-    return "Cache is cleared";
-});
+// Route::get('/clear-cache', function() {
+//     Artisan::call('cache:clear');
+//     return "Cache is cleared";
+// });
 
-// 404 for undefined routes
-Route::any('/{page?}',function(){
-    return View::make('pages.error-pages.error-404');
-})->where('page','.*');
+// // 404 for undefined routes
+// Route::any('/{page?}',function(){
+//     return View::make('pages.error-pages.error-404');
+// })->where('page','.*');
