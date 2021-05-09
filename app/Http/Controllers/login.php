@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Customers;
+use App\Models\customers;
+
 use Illuminate\Contracts\Logging\Log;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class login extends Controller
 {
@@ -21,10 +22,13 @@ class login extends Controller
         }
         $cekpass=true;
         $cekuser=true;
-        $users = Customers::all();
+        $users = customers::all();
         foreach($users as $user) {
           if ($user->No_hp_customer == $nohp) {
             if ($user->Password_customer == $password) {
+              $user_login = customers::where('No_hp_customer',$nohp)->get();
+              Session::put("user_login",$user_login);
+              return ($user_login);
               return redirect('/home');
             }
             else {
