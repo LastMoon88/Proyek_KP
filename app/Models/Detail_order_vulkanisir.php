@@ -18,4 +18,17 @@ class Detail_order_vulkanisir extends Model
      'Kode_ban',
      'Sub_total'
     ];
+
+    public function OrderVulkanisir()
+    {
+        # code...
+        return $this->hasOne(Order_vulkanisir::class,'Id_order_vulkanisir' );
+    }
+
+    public function ProdukVulkanisir()
+    {
+        # code...
+        return $this->hasOne(Produk_vulkanisir::class,'Id_produk_vulkanisir' );
+    }
+
 }

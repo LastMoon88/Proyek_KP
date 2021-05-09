@@ -11,14 +11,11 @@
 |
 */
 
+use App\Models\Detail_order_vulkanisir;
 use App\Models\Order_vulkanisir;
 
 Route::get('/test', function () {
-    dd(Order_vulkanisir::find(1)->details);
-
-
-
-
+    dd(Detail_order_vulkanisir::find(1)->OrderVulkanisir);
 });
 
 
