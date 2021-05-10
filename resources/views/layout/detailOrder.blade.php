@@ -10,9 +10,15 @@
     <div class="col-12 grid-margin">
       <div class="card">
         <div class="row">
+
         <form action="/Order" method="post">
-            @csrf
+            {{ csrf_field() }}
           @isset($ProdukVulkanisir)
+            <h6 class="text-center mb-4 text-danger">
+                @if(Session::has('error'))
+                {{Session::get('error')}}
+                @endif
+            </h6>
                 @if (isset($userLogin))
                 <div class="col-md-10">
                     <div class="card-body">

@@ -9,11 +9,11 @@
     <div class="col-12 grid-margin">
       <div class="card">
         <div class="row">
-            <form action="/detailOrder/{{$i->Id_produk_vulkanisir}}" method="get">
-                @csrf
             @isset($produk)
             @foreach ($produk as $i)
             <div class="col-md-4">
+                <form action="/detailOrder/{{$i->Id_produk_vulkanisir}}" method="get">
+                    {{ csrf_field() }}
 
                         <div class="card-body">
                         <h3 class="card-title">{{$i->Nama_produk_vulkanisir}}</h3>

@@ -69,18 +69,42 @@ class Home extends Controller
         $ProdukVulkanisir = Produk_vulkanisir::where('Id_produk_vulkanisir', $id_produk)->get();
         $userLogin = Session::get("user_login");
 
-        Order_vulkanisir::create([
-            'Nama_order_vulkanisir'=>$nama,
-            'No_hp_order_vulkanisir'=>$noTelp,
-            'Alamat_order_vulkanisir'=>$alamat,
-            'Total_order_vulkanisir'=>$ProdukVulkanisir[0]->Harga_produk_vulkanisir,
-            "Status_order_vulkanisir"=> "pending",
-            "Id_customer"=>$userLogin[0]->Id_customer,
-            "Id_produk_vulkanisir"=>$id_produk,
-            "Tanggal_pengambilan_ban"=>$tglPenjemputan,
-            "Tanggal_pengantaran_ban"=>$tglPengantaran,
-        ]);
+        if(!is_numeric($noTelp)){
+            Session::flash('error', 'No telp tidak boleh huruf');
+            return redirect()->back();
+        }
 
-        return redirect('/home');
+        if($nama== ""){
+            Session::flash('error', 'Nama tidak boleh kosong');
+            return redirect()->back();
+        }elseif ($alamat == "") {
+            Session::flash('error', 'Alamat tidak boleh kosong');
+            return redirect()->back();
+        }elseif ($noTelp == "") {
+            Session::flash('error', 'No hp tidak boleh kosong');
+            return redirect()->back();
+        }elseif ($tglPengantaran == "") {
+            Session::flash('error', 'Tanggal Pengantaran tidak boleh kosong');
+            return redirect()->back();
+        }elseif ($tglPenjemputan == "") {
+            Session::flash('error', 'Tanggal Penjemputan tidak boleh kosong');
+            return redirect()->back();
+        }else{
+            Order_vulkanisir::create([
+                'Nama_order_vulkanisir'=>$nama,
+                'No_hp_order_vulkanisir'=>$noTelp,
+                'Alamat_order_vulkanisir'=>$alamat,
+                'Total_order_vulkanisir'=>$ProdukVulkanisir[0]->Harga_produk_vulkanisir,
+                "Status_order_vulkanisir"=> "pending",
+                "Id_customer"=>$userLogin[0]->Id_customer,
+                "id_produk_vulkanisir"=>$id_produk,
+                "kode_ban"=>0,
+                "Tanggal_pengambilan_ban"=>$tglPenjemputan,
+                "Tanggal_pengantaran_ban"=>$tglPengantaran,
+            ]);
+
+            return redirect('/home');
+        }
+
     }
 }

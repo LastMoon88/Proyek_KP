@@ -34,13 +34,13 @@
         </div>
       </li>
       <li class="nav-item {{ active_class(['/']) }}">
-        <a class="nav-link" href="produk">
+        <a class="nav-link" href="/produk">
           <i class="menu-icon mdi mdi-car"></i>
           <span class="menu-title">Produk</span>
         </a>
       </li>
       <li class="nav-item {{ active_class(['/']) }}">
-        <a class="nav-link" href="produkVulkanisir">
+        <a class="nav-link" href="/produkVulkanisir">
           <i class="menu-icon mdi mdi-camera-iris"></i>
           <span class="menu-title">Produk Vulkanisir</span>
         </a>
