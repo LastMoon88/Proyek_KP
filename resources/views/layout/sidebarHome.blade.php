@@ -3,9 +3,12 @@
       <li class="nav-item nav-profile not-navigation-link">
         <div class="nav-link">
           <div class="user-wrapper">
-
             <div class="text-wrapper">
-              <p class="profile-name">Guest</p>
+                @if (isset($userLogin))
+                    <p class="profile-name">{{$userLogin[0]->Nama_customer}}</p>
+                @else
+                    <p class="profile-name">Guest</p>
+                @endif
               <div class="dropdown" data-display="static">
 
                 <div class="dropdown-menu" aria-labelledby="UsersettingsDropdown">

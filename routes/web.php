@@ -13,10 +13,17 @@
 
 use App\Models\Detail_order_vulkanisir;
 use App\Models\Order_vulkanisir;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
-Route::get('/test', function () {
-    dd(Detail_order_vulkanisir::find(1)->OrderVulkanisir);
+Route::get('/test', function (Request $req) {
+    $userLogin = Session::get("user_login");
+    dd($userLogin);
 });
+
+Route::post('/Order', 'Home@TerOrder');
+Route::get('/detailOrder/{id}','Home@DetailOrder');
 
 
 Route::get('/', function () {

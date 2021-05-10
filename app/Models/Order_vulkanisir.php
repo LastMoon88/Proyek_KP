@@ -19,6 +19,8 @@ class Order_vulkanisir extends Model
      'Total_order_vulkanisir',
      'Status_order_vulkanisir',
      'Id_customer',
+     'id_produk_vulkanisir',
+     'kode_ban',
      'Tanggal_pengambilan_ban',
      'Tanggal_pengantaran_ban'
     ];

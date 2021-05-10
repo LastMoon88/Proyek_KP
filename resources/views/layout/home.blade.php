@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="row">
-    <h2 >Home</h2>
+    <h2 style="text-align:center">Home</h2>
     <div class="col-12 grid-margin">
       <div class="card">
         <div class="row">

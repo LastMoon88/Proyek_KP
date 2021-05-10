@@ -28,7 +28,7 @@ class login extends Controller
             if ($user->Password_customer == $password) {
               $user_login = customers::where('No_hp_customer',$nohp)->get();
               Session::put("user_login",$user_login);
-              return ($user_login);
+            //   return ($user_login);
               return redirect('/home');
             }
             else {

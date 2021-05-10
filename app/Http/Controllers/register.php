@@ -68,7 +68,7 @@ class register extends Controller
                 'Password_customer'=>$password_customer,
                 'Alamat_customer'=>$alamat_customer
             ]);
-            return Redirect('home');
+            return Redirect('login');
         }
     }
 }
