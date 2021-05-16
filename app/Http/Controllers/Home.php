@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\customers;
 use App\Models\Order_vulkanisir;
 use App\Models\Produk_vulkanisir;
 use Illuminate\Http\Request;
@@ -23,23 +24,14 @@ class Home extends Controller
     {
         $produk = DB::select('select * from produk_vulkanisir');
         $userLogin = Session::get("user_login");
+        $user = Customers::find($userLogin);
         return view("layout.produkVulkanisir",[
             "produk"=>$produk,
-            "userLogin"=>$userLogin
+            "userLogin"=>$userLogin,
+            "user"=>$user
         ]);
     }
-    // public function HistoryPemesanan()
-    // {
-    //     $produk = DB::select('select * from order_vulkanisir');
-    //     $detailOrder = DB::select("select * from detail_order_vulkanisir");
-    //     foreach ($i as $key => $value) {
-    //         # code...
-    //     }
 
-    //     return view("layout.produkVulkanisir",[
-    //         "produk"=>$produk
-    //     ]);
-    // }
     public function home()
     {
         $userLogin = Session::get("user_login");
@@ -47,6 +39,23 @@ class Home extends Controller
             "userLogin"=>$userLogin
         ]);
     }
+
+    public function HistoryPemesanan()
+    {
+
+        $userLogin = Session::get("user_login");
+        $history = Order_vulkanisir::where("Id_customer", $userLogin[0]->Id_customer)->get();
+        return view("layout.History_Pemesanan",[
+            "userLogin"=>$userLogin,
+            "history"=>$history,
+        ]);
+        // dd($Produks);
+    }
+
+    // public function LaporanPemesanan(Type $var = null)
+    // {
+    //     # code...
+    // }
 
     public function DetailOrder($id)
     {
@@ -94,6 +103,7 @@ class Home extends Controller
                 'Nama_order_vulkanisir'=>$nama,
                 'No_hp_order_vulkanisir'=>$noTelp,
                 'Alamat_order_vulkanisir'=>$alamat,
+                'Nama_produk'=>$ProdukVulkanisir[0]->Nama_produk_vulkanisir,
                 'Total_order_vulkanisir'=>$ProdukVulkanisir[0]->Harga_produk_vulkanisir,
                 "Status_order_vulkanisir"=> "pending",
                 "Id_customer"=>$userLogin[0]->Id_customer,
@@ -101,6 +111,7 @@ class Home extends Controller
                 "kode_ban"=>0,
                 "Tanggal_pengambilan_ban"=>$tglPenjemputan,
                 "Tanggal_pengantaran_ban"=>$tglPengantaran,
+                "tanggal_order"=>date("Y-m-d")
             ]);
 
             return redirect('/home');

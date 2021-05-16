@@ -11,6 +11,7 @@
 |
 */
 
+use App\Models\customers;
 use App\Models\Detail_order_vulkanisir;
 use App\Models\Order_vulkanisir;
 use Illuminate\Support\Facades\Request;
@@ -19,7 +20,8 @@ use Illuminate\Support\Facades\Session;
 
 Route::get('/test', function (Request $req) {
     $userLogin = Session::get("user_login");
-    dd($userLogin);
+    $user = customers::find($userLogin);
+    dd($user[0]->Jenis_customer);
 });
 
 Route::post('/Order', 'Home@TerOrder');
@@ -33,6 +35,30 @@ Route::get('/', function () {
 Route::get('/home', 'Home@home');
 Route::get('/produk', 'Home@Produk');
 Route::get('/produkVulkanisir', 'Home@ProdukVulkan');
+Route::get('/HistoryPemesanan', 'Home@HistoryPemesanan');
+Route::get('/produkVulkanisir/filter1200-20', 'filter@filter1200');
+Route::get('/produkVulkanisir/filter1100-20', 'filter@filter1100');
+Route::get('/produkVulkanisir/filter1000-20', 'filter@filter1000');
+Route::get('/produkVulkanisir/filter900-20', 'filter@filter900');
+Route::get('/produkVulkanisir/filter750-16', 'filter@filter75016');
+Route::get('/produkVulkanisir/filter750-15', 'filter@filter75015');
+Route::get('/produkVulkanisir/filter700-16', 'filter@filter700');
+Route::get('/produkVulkanisir/filterAB', 'filter@filterAB');
+Route::get('/produkVulkanisir/filterAL', 'filter@filterAL');
+Route::get('/produkVulkanisir/filterCB', 'filter@filterCB');
+Route::get('/produkVulkanisir/filterCE', 'filter@filterCE');
+Route::get('/produkVulkanisir/filterCZ', 'filter@filterCZ');
+Route::get('/produkVulkanisir/filterTK', 'filter@filterTK');
+Route::get('/produkVulkanisir/filterVL', 'filter@filterVL');
+Route::get('/produkVulkanisir/filterELG', 'filter@filterELG');
+Route::get('/produkVulkanisir/filterABR', 'filter@filterABR');
+Route::get('/produkVulkanisir/filterCBR', 'filter@filterCBR');
+Route::get('/produkVulkanisir/filterJZR', 'filter@filterJZR');
+Route::get('/produkVulkanisir/filterCROWN-19', 'filter@filterCROWN19');
+Route::get('/produkVulkanisir/filterCROWNRETREAD', 'filter@filterCROWNRETREAD');
+Route::get('/produkVulkanisir/filterHEBAT', 'filter@filterHEBAT');
+Route::get('/produkVulkanisir/filterTREADONE', 'filter@filterTREADONE');
+Route::post('/produkVulkanisir/filterNamaProduct', 'filter@filterNamaProduct');
 // Route::get('/','DashboardController@index');
 
 Route::get('/asking_for_account', function () {

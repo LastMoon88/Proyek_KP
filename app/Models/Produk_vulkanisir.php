@@ -19,4 +19,6 @@ class Produk_vulkanisir extends Model
      'Merk_produk_vulkanisir',
      'Harga_produk_vulkanisir'
     ];
+
+
 }

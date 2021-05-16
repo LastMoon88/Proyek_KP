@@ -46,13 +46,13 @@
         </a>
       </li>
       <li class="nav-item {{ active_class(['/']) }}">
-        <a class="nav-link" href="{{ url('/') }}">
+        <a class="nav-link" href="/HistoryPemesanan">
           <i class="menu-icon mdi mdi-clipboard-check"></i>
           <span class="menu-title">History Pemesanan</span>
         </a>
       </li>
       <li class="nav-item {{ active_class(['/']) }}">
-        <a class="nav-link" href="{{ url('/') }}">
+        <a class="nav-link" href="/LaporanPemesanan">
           <i class="menu-icon mdi mdi-clipboard-text"></i>
           <span class="menu-title">Laporan Pemesanan</span>
         </a>
@@ -66,10 +66,10 @@
         <div class="collapse {{ show_class(['basic-ui/*']) }}" id="basic-ui">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item {{ active_class(['basic-ui/buttons']) }}">
-              <a class="nav-link" href="{{ url('/basic-ui/buttons') }}">Ganti Password</a>
+              <a class="nav-link" href="/GantiPassword">Ganti Password</a>
             </li>
             <li class="nav-item {{ active_class(['basic-ui/dropdowns']) }}">
-              <a class="nav-link" href="{{ url('/basic-ui/dropdowns') }}">Log Out</a>
+              <a class="nav-link" href="/LogOut">Log Out</a>
             </li>
           </ul>
         </div>
