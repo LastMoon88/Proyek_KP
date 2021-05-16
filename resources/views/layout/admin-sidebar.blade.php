@@ -43,14 +43,14 @@
           <span class="menu-title">Customer</span>
         </a>
       </li>
-      <li class="nav-item {{ active_class(['testproduk']) }}">
-        <a class="nav-link" href="{{ url('/testproduk') }}">
+      <li class="nav-item {{ active_class(['produk_admin']) }}">
+        <a class="nav-link" href="{{ url('/produk_admin') }}">
           <i class="menu-icon mdi mdi-buffer"></i>
           <span class="menu-title">Produk</span>
         </a>
       </li>
-      <li class="nav-item {{ active_class(['tables/basic-table']) }}">
-        <a class="nav-link" href="{{ url('/tables/basic-table') }}">
+      <li class="nav-item {{ active_class(['produk_vulkanisir_admin']) }}">
+        <a class="nav-link" href="{{ url('produk_vulkanisir_admin') }}">
           <i class="menu-icon mdi mdi-truck"></i>
           <span class="menu-title">Produk Vulkanisir</span>
         </a>

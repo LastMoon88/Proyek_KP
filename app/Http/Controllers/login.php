@@ -16,7 +16,7 @@ class login extends Controller
         $nohp = $request->nohp;
         $password = $request->password;
 
-        //masuk admin
+        //masuk adminada
         if($nohp == "admin" && $password == "admin") {
             return redirect('/home-admin');
         }

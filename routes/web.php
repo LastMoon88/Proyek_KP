@@ -81,13 +81,19 @@ Route::post('/cekregister', 'register@cekregister');
 
 Route::get('/home-admin', 'AdminController@PindahCustomer');
 Route::get('/customer-admin', 'AdminController@PindahCustomer');
-Route::get('/produk-admin', 'AdminController@PindahCustomer');
-Route::get('/produk-vulkanisir-admin', 'AdminController@PindahCustomer');
-Route::get('/report-admin', 'AdminController@PindahCustomer');
-
 Route::post('/add-customer', 'AdminController@AddCustomer');
+Route::get('/to_update_customer/{id}', 'AdminController@PindahUpdateCustomer');
+Route::post('/update_customer', 'AdminController@AddCustomer');
 
+Route::get('/produk_admin', 'AdminController@PindahProduk');
+Route::post('/add_produk', 'AdminController@AddProduk');
+Route::get('/to_update_produk/{id}', 'AdminController@PindahUpdateProduk');
+Route::post('/update_produk', 'AdminController@UpdateProduk');
 
+Route::get('/produk_vulkanisir_admin', 'AdminController@PindahProdukVulkanisir');
+Route::post('/add_produk_vulkanisir', 'AdminController@AddProdukVulkanisir');
+Route::get('/to_update_produk_vulkanisir/{id}', 'AdminController@PindahUpdateProdukVulkanisir');
+Route::post('/update_produk_vulkanisir', 'AdminController@UpdateProdukVulkanisir');
 
 
 
