@@ -265,5 +265,21 @@ class filter extends Controller
             "user"=>$user
         ]);
     }
+    public function LaporanPemesananFilter(Request $request)
+    {
+        $userLogin = Session::get("user_login");
+        // $TotalHarga = 0;
+        $today = $request->filterNamaProduct;
+        $history = Order_vulkanisir::where("Id_customer", $userLogin[0]->Id_customer)->where('tanggal_order', 'like', $today.'%')->get();
+        $CountOrder = Order_vulkanisir::where("Id_customer", $userLogin[0]->Id_customer)->where('tanggal_order', 'like', $today.'%')->count();
+        $TotalHarga =Order_vulkanisir::where("Id_customer", $userLogin[0]->Id_customer)->where('tanggal_order', 'like', $today.'%')->sum('Total_order_vulkanisir');
+
+        return view("layout.LaporanPemesan",[
+            "userLogin"=>$userLogin,
+            "history"=>$history,
+            "TotalHarga"=>$TotalHarga,
+            "CountOrder"=>$CountOrder,
+        ]);
+    }
 
 }

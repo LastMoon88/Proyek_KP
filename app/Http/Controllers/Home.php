@@ -49,13 +49,23 @@ class Home extends Controller
             "userLogin"=>$userLogin,
             "history"=>$history,
         ]);
-        // dd($Produks);
     }
 
-    // public function LaporanPemesanan(Type $var = null)
-    // {
-    //     # code...
-    // }
+    public function LaporanPemesanan()
+    {
+        $userLogin = Session::get("user_login");
+        $today = date("Y");
+        $history = Order_vulkanisir::where("Id_customer", $userLogin[0]->Id_customer)->where('tanggal_order', 'like', $today.'%')->get();
+        $CountOrder = Order_vulkanisir::where("Id_customer", $userLogin[0]->Id_customer)->where('tanggal_order', 'like', $today.'%')->count();
+        $TotalHarga =Order_vulkanisir::where("Id_customer", $userLogin[0]->Id_customer)->where('tanggal_order', 'like', $today.'%')->sum('Total_order_vulkanisir');
+
+        return view("layout.LaporanPemesan",[
+            "userLogin"=>$userLogin,
+            "history"=>$history,
+            "TotalHarga"=>$TotalHarga,
+            "CountOrder"=>$CountOrder,
+        ]);
+    }
 
     public function DetailOrder($id)
     {
@@ -65,6 +75,37 @@ class Home extends Controller
             "ProdukVulkanisir"=>$ProdukVulkanisir,
             "userLogin"=>$userLogin
         ]);
+    }
+
+    public function GantiPassword()
+    {
+        return view("layout.GantiPassword");
+    }
+
+    public function ChangePassword(Request $request)
+    {
+        $userLogin = Session::get("user_login");
+        $passwordLama = $request->passwordLama;
+        $passwordBaru = $request->passwordBaru;
+        $confirmPassword = $request->confirmPassword;
+        $Customers = customers::where('Id_customer',$userLogin[0]->Id_customer)->where('Password_customer', $passwordLama)->get();
+        if(count($Customers) == 0){
+            Session::flash('error', 'Password Lama Salah');
+            return redirect()->back();
+        }else if($passwordBaru != $confirmPassword){
+            Session::flash('error', 'Password Baru Salah');
+            return redirect()->back();
+        }else{
+            $customers = customers::find($userLogin[0]->Id_customer);
+            $customers->Password_customer = $passwordBaru;
+            $customers->save();
+        }
+        return redirect('/home');
+    }
+    public function LogOut()
+    {
+        Session::flush();
+        return redirect("/login");
     }
 
     public function TerOrder(Request $data)
@@ -113,9 +154,7 @@ class Home extends Controller
                 "Tanggal_pengantaran_ban"=>$tglPengantaran,
                 "tanggal_order"=>date("Y-m-d")
             ]);
-
             return redirect('/home');
         }
-
     }
 }
