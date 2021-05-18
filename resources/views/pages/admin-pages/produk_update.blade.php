@@ -16,7 +16,7 @@
                     <div class="control-group">
                         <small class="designation text-muted">ID Produk:</small>
                         <div class="controls">
-                            <input type="text" class="form-control" readonly value="{{$produkupdate->Id_produk}}" name="id" style="width: 200pt; height: 20px;  padding: 0.375rem 0.75rem; " />
+                            <input type="text" class="form-control" readonly value="{{$produkupdate->Id_produk}}" name="id" style="width: 30pt; height: 20px;  padding: 0.375rem 0.75rem; " />
                         </div>
                     </div>
                     <br>
@@ -37,7 +37,7 @@
                     <div class="control-group">
                         <small class="designation text-muted">Merk Produk:</small>
                         <div class="controls">
-                            <input type="text" class="form-control" placeholder="Alamat" value="{{$produkupdate->Merk_produk}}" name="merk" style="width: 350pt; height: 20px;  padding: 0.375rem 0.75rem; " />
+                            <input type="text" class="form-control" placeholder="Alamat" value="{{$produkupdate->Merk_produk}}" name="merk" style="width: 150pt; height: 20px;  padding: 0.375rem 0.75rem; " />
                         </div>
                     </div>
                     <br>
@@ -65,7 +65,7 @@
                     <div class="control-group">
                         <small class="designation text-muted">Harga Produk:</small>
                         <div class="controls">
-                            <input type="text" class="form-control" placeholder="Harga" value="{{$produkupdate->Harga_produk}}" name="harga" style="width: 350pt; height: 20px;  padding: 0.375rem 0.75rem; " />
+                            <input type="text" class="form-control" placeholder="Harga" value="{{$produkupdate->Harga_produk}}" name="harga" style="width: 150pt; height: 20px;  padding: 0.375rem 0.75rem; " />
                         </div>
                     </div>
                     <br>

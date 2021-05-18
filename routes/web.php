@@ -96,6 +96,9 @@ Route::get('/to_update_produk_vulkanisir/{id}', 'AdminController@PindahUpdatePro
 Route::post('/update_produk_vulkanisir', 'AdminController@UpdateProdukVulkanisir');
 
 
+Route::get('/report_penjualan', 'ReportController@PindahReportPenjualan');
+Route::post('/report_penjualan', 'ReportController@ReportPenjualan');
+Route::get('/to_report_penjualan', 'ReportController@to_report_penjualan');
 
 
 

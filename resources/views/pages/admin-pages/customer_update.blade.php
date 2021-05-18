@@ -16,7 +16,7 @@
                     <div class="control-group">
                         <small class="designation text-muted">ID Customer:</small>
                         <div class="controls">
-                            <input type="text" class="form-control" readonly value="{{$customerupdate->Id_customer}}" name="id" style="width: 200pt; height: 20px;  padding: 0.375rem 0.75rem; " />
+                            <input type="text" class="form-control" readonly value="{{$customerupdate->Id_customer}}" name="id" style="width: 40pt; height: 20px;  padding: 0.375rem 0.75rem; " />
                         </div>
                     </div>
                     <br>

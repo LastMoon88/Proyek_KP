@@ -23,14 +23,14 @@
                     <div class="control-group">
                         <small class="designation text-muted">Ukuran Produk:</small>
                         <div class="controls">
-                            <input type="text" class="form-control" placeholder="Ukuran" name="ukuran" style="width: 100pt; height: 20px;  padding: 0.375rem 0.75rem; " />
+                            <input type="text" class="form-control" placeholder="Ukuran" name="ukuran" style="width: 80pt; height: 20px;  padding: 0.375rem 0.75rem; " />
                         </div>
                     </div>
                     <br>
                     <div class="control-group">
                         <small class="designation text-muted">Merk Produk:</small>
                         <div class="controls">
-                            <input type="text" class="form-control" placeholder="Merk" name="merk" style="width: 100pt; height: 20px;  padding: 0.375rem 0.75rem; " />
+                            <input type="text" class="form-control" placeholder="Merk" name="merk" style="width: 130pt; height: 20px;  padding: 0.375rem 0.75rem; " />
                         </div>
                     </div>
                     <br>
@@ -48,7 +48,7 @@
                     <div class="control-group">
                         <small class="designation text-muted">Harga Produk:</small>
                         <div class="controls">
-                            <input type="text" class="form-control" placeholder="Harga" name="harga" style="width: 350pt; height: 20px;  padding: 0.375rem 0.75rem; " />
+                            <input type="text" class="form-control" placeholder="Harga" name="harga" style="width: 150pt; height: 20px;  padding: 0.375rem 0.75rem; " />
                         </div>
                     </div>
                     <br>

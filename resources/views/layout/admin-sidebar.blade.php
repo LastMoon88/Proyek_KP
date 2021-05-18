@@ -63,8 +63,8 @@
         </a>
         <div class="collapse {{ show_class(['user-pages/*']) }}" id="user-pages">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item {{ active_class(['user-pages/login']) }}">
-              <a class="nav-link" href="{{ url('/user-pages/login') }}">Pembelian Customer</a>
+            <li class="nav-item {{ active_class(['report_penjualan']) }}">
+              <a class="nav-link" href="{{ url('report_penjualan') }}">Pembelian Customer</a>
             </li>
             <li class="nav-item {{ active_class(['user-pages/register']) }}">
               <a class="nav-link" href="{{ url('/user-pages/register') }}">Produk Paling laku</a>
