@@ -105,7 +105,14 @@ Route::get('/report_penjualan', 'ReportController@PindahReportPenjualan');
 Route::post('/report_penjualan', 'ReportController@ReportPenjualan');
 Route::get('/to_report_penjualan', 'ReportController@to_report_penjualan');
 
+//pegawai
+Route::get('/jadwal_penjemputan', 'PegawaiController@PindahJadwalPenjemputan');
+Route::get('/to_update_status_pickup/{id}', 'AdminController@PindahUpdateCustomer');
+Route::post('/update_status_pickup', 'AdminController@AddCustomer');
 
+Route::get('/jadwal_pengantaran', 'PegawaiController@PindahJadwalPengantaran');
+Route::get('/to_update_status_finished/{id}', 'AdminController@PindahUpdateProduk');
+Route::post('/update_status_finished', 'AdminController@UpdateProduk');
 
 
 

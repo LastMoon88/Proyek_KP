@@ -8,9 +8,9 @@
   <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title text-primary">Produk Vulkanisir Table</h4>
+        <h4 class="card-title text-primary">Laporan Pembelian Customer</h4>
         <div class="table-responsive">
-            <form action="{{ url('/add_produk_vulkanisir')}}" method="post">
+            <form action="{{ url('/report_penjualan')}}" method="post">
                 {{ csrf_field() }}
                 <div class="control-group">
                     <small class="designation text-muted">Tahun:</small>

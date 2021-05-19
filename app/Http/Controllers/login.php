@@ -20,6 +20,9 @@ class login extends Controller
         if($nohp == "admin" && $password == "admin") {
             return redirect('/home-admin');
         }
+        if($nohp == "pegawai" && $password == "pegawai") {
+            return redirect('/home-pegawai');
+        }
         $cekpass=true;
         $cekuser=true;
         $users = customers::all();
