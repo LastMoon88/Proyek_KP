@@ -28,7 +28,7 @@
 
   <div class="container-scroller" id="app">
     <div class="container-fluid page-body-wrapper">
-      @include('layout.pegawai-sidebar')
+      @include('layout.pegawai-sidedbar')
       <div class="main-panel">
         <div class="content-wrapper">
           @yield('content')

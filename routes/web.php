@@ -107,12 +107,12 @@ Route::get('/to_report_penjualan', 'ReportController@to_report_penjualan');
 
 //pegawai
 Route::get('/jadwal_penjemputan', 'PegawaiController@PindahJadwalPenjemputan');
-Route::get('/to_update_status_pickup/{id}', 'AdminController@PindahUpdateCustomer');
-Route::post('/update_status_pickup', 'AdminController@AddCustomer');
+Route::get('/to_update_status_pickup/{id}', 'PegawaiController@PindahUpdateStatusPickup');
+Route::post('/update_status_pickup', 'PegawaiController@UpdateStatusPickup');
 
 Route::get('/jadwal_pengantaran', 'PegawaiController@PindahJadwalPengantaran');
-Route::get('/to_update_status_finished/{id}', 'AdminController@PindahUpdateProduk');
-Route::post('/update_status_finished', 'AdminController@UpdateProduk');
+Route::get('/to_update_status_finished/{id}', 'PegawaiController@PindahUpdateStatusFinished');
+Route::post('/update_status_finished', 'PegawaiController@UpdateStatusFinished');
 
 
 

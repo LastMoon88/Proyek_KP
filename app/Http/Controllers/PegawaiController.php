@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\customers;
+use App\Models\Order_vulkanisir;
 use App\Models\Produk;
 use App\Models\Produk_vulkanisir;
 use Illuminate\Http\Request;
@@ -12,76 +13,103 @@ use Illuminate\Support\Facades\Session;
 
 class PegawaiController extends Controller
 {
-    public function UpdateStatusOrder(Request $request)
+    //////////jadwal penjemputan/////////////
+    public function UpdateStatusPickup(Request $request)
     {
         $nama = $request->nama;
         $nohp = $request->nohp;
         $alamat = $request->alamat;
-        $jenis = $request->jenis;
+        $kodeban = $request->kodeban;
 
         //cek sudah terisi semua
-        if($nama == ""){
-            $request->session()->flash('error', 'Nama tidak boleh kosong');
+        if($kodeban == ""){
+            $request->session()->flash('error', 'kodeban tidak boleh kosong');
             return Redirect::back();
-        }
-        elseif ($nohp == "") {
-            $request->session()->flash('error', 'No Hp tidak boleh kosong');
-            return Redirect::back();
-        }
-        elseif ($alamat == "") {
-            $request->session()->flash('error', 'Alamat tidak boleh kosong');
-            return Redirect::back();
-        }
-
-        //cek no telp
-        if(!is_numeric($nohp)){
-            $request->session()->flash('error', 'No telp tidak boleh huruf');
-            return Redirect::back();
-        }
-        elseif (strlen($nohp)!=12) {
-            $request->session()->flash('error', 'No telp minimal 12 angka');
-            return Redirect::back();
-        }
-
-        $users = DB::select('select * from customer');
-        //cek no telp sudah terdaftar
-        foreach($users as $user) {
-            if ($user->No_hp_customer == $nohp) {
-                $request->session()->flash('error', 'No telp sudah digunakan, silahkan mencoba dengan no telp yang lain');
-                return Redirect::back();
-            }
         }
 
         if(Session::has('error')){
             return Redirect::back();
         }
         else{
-            $customerupdate = customers::find($request->id);
-            $customerupdate->Nama_customer = $request->nama;
-            $customerupdate->No_hp_customer = $request->nohp;
-            $customerupdate->Alamat_customer = $request->alamat;
-            $customerupdate->Jenis_customer = $request->jenis;
-            $customerupdate->save();
+            $orderupdate = Order_vulkanisir::find($request->id);
+            $orderupdate->Status_order_vulkanisir = "pick-up";
+            $orderupdate->kode_ban = $request->kodeban;
+            $orderupdate->save();
         }
 
-        $DaftarCustomer = customers::All();
-        return view("pages.admin-pages.customer-admin",[
-            "DaftarCustomer"=>$DaftarCustomer
-        ]);
+        return redirect("/jadwal_penjemputan");
     }
-    public function PindahOrder()
+    public function PindahJadwalPenjemputan()
     {
-        $DaftarCustomer = customers::All();
-        return view("pages.admin-pages.customer-admin",[
-            "DaftarCustomer"=>$DaftarCustomer
-        ]);
+        $DaftarOrder = DB::select("select * from order_vulkanisir where Tanggal_pengambilan_ban = CURDATE() and Status_order_vulkanisir = 'pending'");
+        if(count($DaftarOrder) == 0){
+            $alert = "Tidak ada jadwal penjemputan hari ini, silahkan cek beberapa jam kemudian!";
+            return view("pages.pegawai-pages.jadwal_penjemputan",[
+                "alert"=>$alert
+            ]);
+        }
+        else{
+            return view("pages.pegawai-pages.jadwal_penjemputan",[
+                "DaftarOrder"=>$DaftarOrder
+            ]);
+        }
+
     }
-    public function PindahUpdateOrder($id)
+    public function PindahUpdateStatusPickup($id)
     {
-        $customerupdate = customers::find($id);
-        return view("pages.admin-pages.customer_update",[
-            "customerupdate"=>$customerupdate
+        $orderupdate = Order_vulkanisir::find($id);
+        return view("pages.pegawai-pages.keterangan_penjemputan",[
+            "orderupdate"=>$orderupdate
         ]);
     }
 
+    ////////////jadwal pengantaran//////////////
+    public function UpdateStatusFinished(Request $request)
+    {
+        $nama = $request->nama;
+        $nohp = $request->nohp;
+        $alamat = $request->alamat;
+        $kodeban = $request->kodeban;
+
+        //cek sudah terisi semua
+        if($kodeban == ""){
+            $request->session()->flash('error', 'kodeban tidak boleh kosong');
+            return Redirect::back();
+        }
+
+        if(Session::has('error')){
+            return Redirect::back();
+        }
+        else{
+            $orderupdate = Order_vulkanisir::find($request->id);
+            $orderupdate->Status_order_vulkanisir = "pick-up";
+            $orderupdate->kode_ban = $request->kodeban;
+            $orderupdate->save();
+        }
+
+        return redirect("/jadwal_penjemputan");
+    }
+    public function PindahJadwalPengantaran()
+    {
+        $DaftarOrder = DB::select("select * from order_vulkanisir where Tanggal_pengambilan_ban = CURDATE() and Status_order_vulkanisir = 'pending'");
+        if(count($DaftarOrder) == 0){
+            $alert = "Tidak ada jadwal penjemputan hari ini, silahkan cek beberapa jam kemudian!";
+            return view("pages.pegawai-pages.jadwal_penjemputan",[
+                "alert"=>$alert
+            ]);
+        }
+        else{
+            return view("pages.pegawai-pages.jadwal_penjemputan",[
+                "DaftarOrder"=>$DaftarOrder
+            ]);
+        }
+
+    }
+    public function PindahUpdateStatusFinished($id)
+    {
+        $orderupdate = Order_vulkanisir::find($id);
+        return view("pages.pegawai-pages.keterangan_penjemputan",[
+            "orderupdate"=>$orderupdate
+        ]);
+    }
 }

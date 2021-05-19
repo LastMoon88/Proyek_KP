@@ -21,7 +21,7 @@ class login extends Controller
             return redirect('/home-admin');
         }
         if($nohp == "pegawai" && $password == "pegawai") {
-            return redirect('/home-pegawai');
+            return redirect('/jadwal_penjemputan');
         }
         $cekpass=true;
         $cekuser=true;
