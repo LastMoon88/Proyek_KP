@@ -70,36 +70,27 @@ class PegawaiController extends Controller
         $nohp = $request->nohp;
         $alamat = $request->alamat;
         $kodeban = $request->kodeban;
+        $kondisi = $request->kondisi;
 
-        //cek sudah terisi semua
-        if($kodeban == ""){
-            $request->session()->flash('error', 'kodeban tidak boleh kosong');
-            return Redirect::back();
-        }
 
-        if(Session::has('error')){
-            return Redirect::back();
-        }
-        else{
             $orderupdate = Order_vulkanisir::find($request->id);
-            $orderupdate->Status_order_vulkanisir = "pick-up";
-            $orderupdate->kode_ban = $request->kodeban;
+            $orderupdate->Status_order_vulkanisir = $kondisi;
             $orderupdate->save();
-        }
 
-        return redirect("/jadwal_penjemputan");
+
+        return redirect("/jadwal_pengantaran");
     }
     public function PindahJadwalPengantaran()
     {
-        $DaftarOrder = DB::select("select * from order_vulkanisir where Tanggal_pengambilan_ban = CURDATE() and Status_order_vulkanisir = 'pending'");
+        $DaftarOrder = DB::select("select * from order_vulkanisir where Tanggal_pengantaran_ban = CURDATE() and Status_order_vulkanisir = 'pick-up'");
         if(count($DaftarOrder) == 0){
-            $alert = "Tidak ada jadwal penjemputan hari ini, silahkan cek beberapa jam kemudian!";
-            return view("pages.pegawai-pages.jadwal_penjemputan",[
+            $alert = "Tidak ada jadwal pengantaran hari ini, silahkan cek di hari besok!";
+            return view("pages.pegawai-pages.jadwal_pengantaran",[
                 "alert"=>$alert
             ]);
         }
         else{
-            return view("pages.pegawai-pages.jadwal_penjemputan",[
+            return view("pages.pegawai-pages.jadwal_pengantaran",[
                 "DaftarOrder"=>$DaftarOrder
             ]);
         }
@@ -108,7 +99,7 @@ class PegawaiController extends Controller
     public function PindahUpdateStatusFinished($id)
     {
         $orderupdate = Order_vulkanisir::find($id);
-        return view("pages.pegawai-pages.keterangan_penjemputan",[
+        return view("pages.pegawai-pages.keterangan_pengantaran",[
             "orderupdate"=>$orderupdate
         ]);
     }

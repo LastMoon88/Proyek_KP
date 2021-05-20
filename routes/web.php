@@ -66,6 +66,7 @@ Route::get('/produkVulkanisir/filterTREADONE', 'filter@filterTREADONE');
 Route::post('/produkVulkanisir/filterNamaProduct', 'filter@filterNamaProduct');
 // Route::get('/','DashboardController@index');
 
+    ////////////halaman awal//////////////
 Route::get('/asking_for_account', function () {
     return view('pages.user-pages.asking_for_account');
 });
@@ -84,6 +85,7 @@ Route::get('/register', function () {
 });
 Route::post('/cekregister', 'register@cekregister');
 
+    ///////////admin//////////////
 Route::get('/home-admin', 'AdminController@PindahCustomer');
 Route::get('/customer-admin', 'AdminController@PindahCustomer');
 Route::post('/add-customer', 'AdminController@AddCustomer');
@@ -105,7 +107,7 @@ Route::get('/report_penjualan', 'ReportController@PindahReportPenjualan');
 Route::post('/report_penjualan', 'ReportController@ReportPenjualan');
 Route::get('/to_report_penjualan', 'ReportController@to_report_penjualan');
 
-//pegawai
+    ///////////pegawai//////////////
 Route::get('/jadwal_penjemputan', 'PegawaiController@PindahJadwalPenjemputan');
 Route::get('/to_update_status_pickup/{id}', 'PegawaiController@PindahUpdateStatusPickup');
 Route::post('/update_status_pickup', 'PegawaiController@UpdateStatusPickup');
@@ -113,7 +115,6 @@ Route::post('/update_status_pickup', 'PegawaiController@UpdateStatusPickup');
 Route::get('/jadwal_pengantaran', 'PegawaiController@PindahJadwalPengantaran');
 Route::get('/to_update_status_finished/{id}', 'PegawaiController@PindahUpdateStatusFinished');
 Route::post('/update_status_finished', 'PegawaiController@UpdateStatusFinished');
-
 
 
 

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class register extends Controller
 {
+            //////////register user/////////////
     public function cekregister(Request $request) {
         $nama_customer = $request->nama_customer;
         $no_hp_customer = $request->no_hp_customer;

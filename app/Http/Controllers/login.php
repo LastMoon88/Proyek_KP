@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 
 class login extends Controller
 {
+                //////////login user/////////////
     public function ceklogin(Request $request) {
         $nohp = $request->nohp;
         $password = $request->password;

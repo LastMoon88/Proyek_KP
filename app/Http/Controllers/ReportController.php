@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Session;
 
 class ReportController extends Controller
 {
+        //////////report admin/////////////
     public function ReportPenjualan(Request $request)
     {
         $tahun = $request->tahun;

@@ -21,8 +21,5 @@ class customers extends Model
     ];
 
 
-    // customer has
-
-
 
 }
