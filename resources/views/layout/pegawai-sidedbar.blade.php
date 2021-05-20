@@ -21,8 +21,8 @@
           <span class="menu-title">Jadwal Pengantaran</span>
         </a>
       </li>
-      <li class="nav-item {{ active_class(['logout']) }}">
-        <a class="nav-link" href="{{ url('logout') }}">
+      <li class="nav-item {{ active_class(['login']) }}">
+        <a class="nav-link" href="{{ url('login') }}">
           <i class="menu-icon mdi mdi-truck"></i>
           <span class="menu-title">Log Out</span>
         </a>

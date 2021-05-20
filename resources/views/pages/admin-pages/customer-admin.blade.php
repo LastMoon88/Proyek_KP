@@ -92,7 +92,7 @@
                         <button type="button" class="btn btn-inverse-warning btn-rounded btn-fw"><a style="text-decoration: none;" class="text-warning" href="to_update_customer/{{$cust->Id_customer}}">Update</a></button>
                     </td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-inverse-danger btn-rounded btn-fw">Delete</button>
+                        <button type="button" class="btn btn-inverse-danger btn-rounded btn-fw"><a style="text-decoration: none;" class="text-danger" href="to_delete_customer/{{$cust->Id_customer}}">Delete</a></button>
                     </td>
                 </tr>
               @endforeach

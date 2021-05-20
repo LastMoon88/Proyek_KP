@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
+    //            DB::table('kelas')->where('Id_kelas', '=' , $valueDelete)->delete();
+
     /////////////////////////////////////////////////////////////////
     //               customer             //////////////////////////////
     //////////////////////////////////////////////////////////////////
@@ -144,6 +146,14 @@ class AdminController extends Controller
             "customerupdate"=>$customerupdate
         ]);
     }
+    public function DeleteCustomer($id)
+    {
+        DB::table('customer')->where('Id_customer', '=' , $id)->delete();
+        $DaftarCustomer = customers::All();
+        return view("pages.admin-pages.customer-admin",[
+            "DaftarCustomer"=>$DaftarCustomer
+        ]);
+    }
 
     /////////////////////////////////////////////////////////////////
     //               produk             //////////////////////////////
@@ -260,6 +270,14 @@ class AdminController extends Controller
         $produkupdate = Produk::find($id);
         return view("pages.admin-pages.produk_update",[
             "produkupdate"=>$produkupdate
+        ]);
+    }
+    public function DeleteProduk($id)
+    {
+        DB::table('produk')->where('Id_produk', '=' , $id)->delete();
+        $DaftarProduk = Produk::All();
+        return view("pages.admin-pages.produk_admin",[
+            "DaftarProduk"=>$DaftarProduk
         ]);
     }
 
@@ -386,6 +404,14 @@ class AdminController extends Controller
         $produkVulkupdate = Produk_vulkanisir::find($id);
         return view("pages.admin-pages.produk_vulkanisir_update",[
             "produkVulkupdate"=>$produkVulkupdate
+        ]);
+    }
+    public function DeleteProdukVulkanisir($id)
+    {
+        DB::table('produk_vulkanisir')->where('Id_produk_vulkanisir', '=' , $id)->delete();
+        $DaftarProdukVulkanisir = Produk_vulkanisir::All();
+        return view("pages.admin-pages.produk_vulkanisir_admin",[
+            "DaftarProdukVulkanisir"=>$DaftarProdukVulkanisir
         ]);
     }
 }
