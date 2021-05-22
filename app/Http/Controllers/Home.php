@@ -42,7 +42,6 @@ class Home extends Controller
 
     public function HistoryPemesanan()
     {
-
         $userLogin = Session::get("user_login");
         $history = Order_vulkanisir::where("Id_customer", $userLogin[0]->Id_customer)->get();
         return view("layout.History_Pemesanan",[
