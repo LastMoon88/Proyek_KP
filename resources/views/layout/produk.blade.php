@@ -1,4 +1,4 @@
-@extends('layout.layout1')
+@extends('layout.layout2')
 
 @push('plugin-styles')
   <!-- {!! Html::style('/assets/plugins/plugin.css') !!} -->
