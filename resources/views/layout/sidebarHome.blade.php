@@ -45,6 +45,7 @@
           <span class="menu-title">Produk Vulkanisir</span>
         </a>
       </li>
+      @if (isset($userLogin))
       <li class="nav-item {{ active_class(['/']) }}">
         <a class="nav-link" href="/HistoryPemesanan">
           <i class="menu-icon mdi mdi-clipboard-check"></i>
@@ -57,6 +58,7 @@
           <span class="menu-title">Laporan Pemesanan</span>
         </a>
       </li>
+      @endif
       <li class="nav-item {{ active_class(['basic-ui/*']) }}">
         <a class="nav-link" data-toggle="collapse" href="#basic-ui" aria-expanded="{{ is_active_route(['basic-ui/*']) }}" aria-controls="basic-ui">
           <i class="menu-icon mdi mdi-lock-outline"></i>
