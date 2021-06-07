@@ -3,9 +3,8 @@
       <li class="nav-item nav-profile not-navigation-link">
         <div class="nav-link">
           <div class="user-wrapper">
-            <div class="profile-image">
-              <img src="{{ url('assets/images/faces/face8.jpg') }}" alt="profile image">
-            </div>
+              <img src="{{ url('assets/images/logo-perusahaan.png') }}" >
+
           </div>
         </div>
       </li>
