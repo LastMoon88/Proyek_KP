@@ -90,7 +90,7 @@ Route::get('/home-admin', 'AdminController@PindahCustomer');
 Route::get('/customer-admin', 'AdminController@PindahCustomer');
 Route::post('/add-customer', 'AdminController@AddCustomer');
 Route::get('/to_update_customer/{id}', 'AdminController@PindahUpdateCustomer');
-Route::post('/update_customer', 'AdminController@AddCustomer');
+Route::post('/update_customer', 'AdminController@UpdateCustomer');
 Route::get('/to_delete_customer/{id}', 'AdminController@DeleteCustomer');
 
 Route::get('/produk_admin', 'AdminController@PindahProduk');
