@@ -109,6 +109,10 @@ Route::get('/report_penjualan', 'ReportController@PindahReportPenjualan');
 Route::post('/report_penjualan', 'ReportController@ReportPenjualan');
 Route::get('/to_report_penjualan', 'ReportController@to_report_penjualan');
 
+Route::get('/report_produk', 'ReportController@PindahReportProduk');
+Route::post('/report_produk', 'ReportController@ReportProduk');
+Route::get('/to_report_produk', 'ReportController@to_report_produk');
+
     ///////////pegawai//////////////
 Route::get('/jadwal_penjemputan', 'PegawaiController@PindahJadwalPenjemputan');
 Route::get('/to_update_status_pickup/{id}', 'PegawaiController@PindahUpdateStatusPickup');

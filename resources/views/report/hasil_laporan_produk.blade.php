@@ -29,13 +29,15 @@
 </head>
 <body>
     <div>
-        <h1 >Laporan Pembelian</h1>
+        <h1 >Laporan Penjualan Produk</h1>
         <table class="table table-striped">
             <thead>
             <tr  class="table-primary">
-                <th> Nama Customer</th>
-                <th> No. Telp</th>
-                <th> Banyak Pesanan </th>
+                <th> Nama </th>
+                <th> Tread</th>
+                <th> Ukuran</th>
+                <th> Merk</th>
+                <th> Jumlah di Order </th>
                 <th> Total </th>
             </tr>
             </thead>
@@ -43,9 +45,11 @@
             @foreach ($DaftarOrder as $order)
                 <tr>
                     <td> {{$order->nama}} </td>
-                    <td> {{$order->nohp}} </td>
+                    <td> {{$order->tread}} </td>
+                    <td> {{$order->ukuran}} </td>
+                    <td> {{$order->merk}} </td>
                     <td> {{$order->banyak_pesanan}} </td>
-                    <td> {{$order->total_pesanan}} </td>
+                    <td> {{$order->total}} </td>
                 </tr>
             @endforeach
             </tbody>

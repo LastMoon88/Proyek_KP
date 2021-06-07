@@ -47,8 +47,8 @@
             <li class="nav-item {{ active_class(['report_penjualan']) }}">
               <a class="nav-link" href="{{ url('report_penjualan') }}">Pembelian Customer</a>
             </li>
-            <li class="nav-item {{ active_class(['user-pages/register']) }}">
-              <a class="nav-link" href="{{ url('/user-pages/register') }}">Produk Paling laku</a>
+            <li class="nav-item {{ active_class(['report_produk']) }}">
+              <a class="nav-link" href="{{ url('/report_produk') }}">Produk Paling laku</a>
             </li>
           </ul>
         </div>

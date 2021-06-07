@@ -80,7 +80,6 @@ class AdminController extends Controller
         $nama = $request->nama;
         $nohp = $request->nohp;
         $alamat = $request->alamat;
-        $jenis = $request->jenis;
 
         //cek sudah terisi semua
         if($nama == ""){
@@ -104,15 +103,6 @@ class AdminController extends Controller
         elseif (strlen($nohp)!=12) {
             $request->session()->flash('error', 'No telp minimal 12 angka');
             return Redirect::back();
-        }
-
-        $users = DB::select('select * from customer');
-        //cek no telp sudah terdaftar
-        foreach($users as $user) {
-            if ($user->No_hp_customer == $nohp) {
-                $request->session()->flash('error', 'No telp sudah digunakan, silahkan mencoba dengan no telp yang lain');
-                return Redirect::back();
-            }
         }
 
         if(Session::has('error')){
