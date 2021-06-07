@@ -18,6 +18,10 @@
                         <div class="card-body">
                         <h3 class="card-title">{{$i->Nama_produk_vulkanisir}}</h3>
                         <img src="https://photo.jpnn.com/arsip/normal/2019/10/15/ban-bridgestone-emsa-foto-bridgestone-77.jpeg" alt="BAN" style="width:200px;height:142px;"> <br>
+                        Merk Ban: <i> {{$i->Merk_produk_vulkanisir}} </i><br>
+                        Ukuran Ban:<i> {{$i->Ukuran_produk_vulkanisir}} </i><br>
+                        Tread Ban:<i> {{$i->Tread_produk_vulkanisir}} </i><br>
+                        Harga Ban: <i>{{$i->Harga_produk_vulkanisir}} </i><br>
                         <input type="submit" class="btn-lg btn-primary btn-block submit-btn" value="Order">
                         {{-- <a style="text-decoration: none;" href="login"><button class="btn-lg btn-primary btn-block submit-btn">ORDER</button></a> --}}
                         </div>
